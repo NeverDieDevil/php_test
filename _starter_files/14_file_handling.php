@@ -8,3 +8,19 @@
 */
 
 //Starting file handling
+//test2
+
+$file = '../extras/userss.txt';
+
+if(file_exists($file)){
+  // echo readfile($file);
+  $handle = fopen($file, 'r');
+  $contents = fread($handle, filesize($file));
+  fclose($handle);
+  echo $contents;
+} else {
+  $handle = fopen($file, 'w');
+  $contents = 'NeverDie' . PHP_EOL . 'Rafal' . PHP_EOL . 'Mateusz';
+  fwrite($handle, $contents);
+  fclose($handle);
+}
